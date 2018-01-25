@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang = "en">
+   <head>
+      <title>Search Database</title>
+      <style type = "text/css">
+         body  { background-color: LightBlue} 
+         h2    { font-family: arial, sans-serif;
+                 color: blue }
+		 label {margin-left:2em}
+		 .submit {margin-left:15em}
+		 .msg {color: red}
+      </style>
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	  <script src="TeamNewJs/searchE.js"></script>
+   </head>
+   <body>
+
+
+			  <form onsubmit=""  id="form1">
+					<p><h4>Search for: </h4>
+					 <p>
+					  <label>name: 
+						  <input type="text" name="name" size="50" /> 
+						  (optional)
+					  </label>
+					 </p>
+					 <p>
+					  <label>Phone number: 
+					  <input type="text" name="phonenumber" size="10" maxlength="10"/>
+					  (optional)
+					  </label>
+					 </p> 
+					<p> 
+					<p><h4>Select fields to display: (required) </h4>
+					   <p /> 
+					   <label>Phone Number
+						  <input type="checkbox" name="fields[]" value="phonenumber" />
+					   </label>
+					   <label>Name
+						  <input type="checkbox" name="fields[]" value="name" />
+					   </label>
+					   <label>Email
+						  <input type="checkbox" name="fields[]" value="email" />
+					   </label>
+					   <label>Username 
+						  <input type="checkbox" name="fields[]" value="username" />
+					   </label>
+					   <label>Image Path
+						  <input type="checkbox" name="fields[]" value="imagepath" />
+					   </label>
+					   <label>Role
+						  <input type="checkbox" name="fields[]" value="role" />
+					   </label>
+					 </p>
+					<div class="msg">
+					<label id="errormsg"></label>
+				</div>
+				<br />
+					<input type="button" id='button1' class="submit" value="Send Query" />
+			  </form>
+			  <div id="responsediv"></div>
+           <p></p>
+   </body>
+</html>

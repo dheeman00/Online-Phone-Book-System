@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang = "en">
+   <head>
+      <title>University Feedback</title>
+	  <meta charset = "utf-8" />
+      <style type="text/css">
+	  body {text-align: center;
+			background-color: LightBlue;
+			font-size: 1.75em}
+
+	  input[type=submit] {
+		height: 100px;      /* increase the height */
+		line-height: 100px; /* vertically align the text */
+		font-size: 2em;
+		width: 150px;
+						}
+      </style>
+	  
+	  <script type="text/javascript">
+	  
+			var msg;
+					
+			function isEmpty(obj)
+			{
+				obj.value = obj.value.trim();
+				if (obj.value == null || obj.value == "")
+				{
+				   if (msg == "")
+					msg = obj.name;
+				   else
+					msg = msg + " , " + obj.name;
+				  
+				   return true;
+				}
+				return false;
+			}
+
+			function validateLogin()
+			{
+				// Validates that username and password fields aren't empty
+				// Display error message underneath login form
+				msg = "";
+									   
+				var result = true;
+				var obj_arr = ["loginUsername","loginPassword"];
+			   
+				for (var i = 0; i<2; i++) 
+				   result = !isEmpty(document.getElementsByName(obj_arr[i])[0]) && result;                
+
+				if (!result) {
+				   msg = "Please provide both a username and password.";
+				   document.getElementById("errormsg").innerHTML = msg;		
+					return result;
+				}
+				
+				return result;       
+				
+			}
+
+		
+	  </script>
+	  
+	  
+   </head>
+
+   <body>
+      <h1> <strong>Team New</strong> Phonebook System</h1>
+
+	  <br /> <br />
+      <h2> Please login here! </h2>
+	  <br />
+	  
+	   <form method = "post" action="login.php" onsubmit = "return validateLogin()" >
+			 <p>
+			  <label>UserName: 
+				  <input type="text"  name="loginUsername" /> 
+			  </label>
+			 </p>
+			 <p>
+			  <label>Password:  
+				  <input type="password" name="loginPassword" />
+			  </label>
+			<div class="msg" style="color:RED">
+				<label id="errormsg"></label>
+			</div>
+			<br/>
+			<input type="submit" value="Login">
+	  </form>
+	  
+	  
+      
+   </body>
+</html>
